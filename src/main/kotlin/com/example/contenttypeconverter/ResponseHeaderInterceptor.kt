@@ -16,7 +16,6 @@ class ResponseHeaderInterceptor : ClientHttpRequestInterceptor {
     /**
      * リクエスト実行し、実行後のレスポンスオブジェクトのContentTypeをapplication/jsonで上書きする
      */
-    @Override
     override fun intercept(request: HttpRequest,
                            body: ByteArray,
                            execution: ClientHttpRequestExecution): ClientHttpResponse {

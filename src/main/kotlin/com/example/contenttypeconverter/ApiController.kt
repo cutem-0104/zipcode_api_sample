@@ -17,6 +17,11 @@ class ApiController {
     @GetMapping("/test")
     fun callApi(@RequestParam zipcode: String): ZipcodeResult {
         val restClient: RestClient = RestClient(RestTemplateBuilder(), ResponseHeaderInterceptor())
-        return restClient.request(zipcode)
+        val zipcodeResult = restClient.request(zipcode)
+        if (zipcodeResult.message == null) {
+            zipcodeResult.message = ""
+        }
+
+        return zipcodeResult
     }
 }
